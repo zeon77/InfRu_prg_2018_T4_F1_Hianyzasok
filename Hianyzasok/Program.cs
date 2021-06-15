@@ -19,6 +19,12 @@ namespace Hianyzasok
             Console.WriteLine("2. feladat:");
             Console.WriteLine($"\tÖsszes mulasztott órák száma: {hianyzasok.Sum(h => h.MulasztottÓrák)} óra.");
 
+            //3. feladat
+            Console.WriteLine("3. feladat:");
+            Console.Write($"\tKérem adjon meg egy napot: ");
+            int nap = int.Parse(Console.ReadLine());
+            Console.Write($"\tTanuló neve: ");
+            string név = Console.ReadLine();
         }
     }
 }
