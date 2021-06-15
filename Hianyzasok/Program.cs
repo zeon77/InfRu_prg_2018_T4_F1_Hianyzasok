@@ -29,6 +29,15 @@ namespace Hianyzasok
             //4. feladat
             Console.WriteLine("4. feladat:");
             Console.WriteLine($"\t{(hianyzasok.Any(h => h.Név == név) ? "A tanuló hiányzott szeptemberben" : "A tanuló nem hiányzott szeptemberben")}");
+
+            //5. feladat
+            Console.WriteLine($"5. feladat: Hiányzók 2017.09.{nap:D2}-n:");
+            var hiányzók = hianyzasok.Where(h => nap >= h.ElsőNap && nap <= h.UtolsóNap).ToList();
+            if (hiányzók.Count == 0)
+                Console.WriteLine($"\tNem volt hiányzó");
+            else
+                hiányzók.ForEach(h => Console.WriteLine($"\t{h.Név} ({h.Osztály})"));
+
         }
     }
 }
