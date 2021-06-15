@@ -12,7 +12,7 @@ namespace Hianyzasok
         {
             // 1.feladat
             List<Hianyzas> hianyzasok = new List<Hianyzas>();
-            foreach (var sor in File.ReadAllLines(@"szeptember.csv", Encoding.Default).Skip(1))
+            foreach (var sor in File.ReadAllLines(@"szeptember.csv", Encoding.Latin1).Skip(1))
                 hianyzasok.Add(new Hianyzas(sor));
 
             //2. feladat
@@ -25,6 +25,10 @@ namespace Hianyzasok
             int nap = int.Parse(Console.ReadLine());
             Console.Write($"\tTanuló neve: ");
             string név = Console.ReadLine();
+
+            //4. feladat
+            Console.WriteLine("4. feladat:");
+            Console.WriteLine($"\t{(hianyzasok.Any(h => h.Név == név) ? "A tanuló hiányzott szeptemberben" : "A tanuló nem hiányzott szeptemberben")}");
         }
     }
 }
