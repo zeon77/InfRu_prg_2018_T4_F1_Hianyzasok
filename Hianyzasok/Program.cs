@@ -38,6 +38,17 @@ namespace Hianyzasok
             else
                 hiányzók.ForEach(h => Console.WriteLine($"\t{h.Név} ({h.Osztály})"));
 
+            //6. feladat
+            Console.WriteLine("6. feladat: osszesites.csv");
+            using (StreamWriter sw = new StreamWriter(@"osszesites.csv"))
+            {
+                hianyzasok
+                    .GroupBy(h => h.Osztály)
+                    .OrderBy(grp => grp.Key)
+                    .Select(grp => new { Osztály = grp.Key, ÖsszesÓra = grp.Sum(h => h.MulasztottÓrák) })
+                    .ToList()
+                    .ForEach(x => sw.WriteLine($"{x.Osztály};{x.ÖsszesÓra}"));
+            }
         }
     }
 }
